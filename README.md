@@ -1,4 +1,4 @@
-vala_geetest
-============
+valatest
+========
 
-Vala libgee Test
+A test with Vala and C
