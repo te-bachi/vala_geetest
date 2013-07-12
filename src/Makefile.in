@@ -71,7 +71,10 @@ am_vala_geetest_OBJECTS = vala_geetest-vala_geetest.$(OBJEXT) \
 vala_geetest_OBJECTS = $(am_vala_geetest_OBJECTS)
 am__DEPENDENCIES_1 =
 vala_geetest_DEPENDENCIES = $(am__DEPENDENCIES_1)
-vala_geetest_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+AM_V_lt = $(am__v_lt_@AM_V@)
+am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
+am__v_lt_0 = --silent
+vala_geetest_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(vala_geetest_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/config
@@ -80,16 +83,33 @@ am__depfiles_maybe = depfiles
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
-LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
-	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) \
+	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(AM_CFLAGS) $(CFLAGS)
+AM_V_CC = $(am__v_CC_@AM_V@)
+am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
+am__v_CC_0 = @echo "  CC    " $@;
+AM_V_at = $(am__v_at_@AM_V@)
+am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
+am__v_at_0 = @
 CCLD = $(CC)
-LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+AM_V_CCLD = $(am__v_CCLD_@AM_V@)
+am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
+am__v_CCLD_0 = @echo "  CCLD  " $@;
 VALACOMPILE = $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS)
-LTVALACOMPILE = $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=compile $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS)
+LTVALACOMPILE = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=compile $(VALAC) $(AM_VALAFLAGS) \
+	$(VALAFLAGS)
+AM_V_VALAC = $(am__v_VALAC_@AM_V@)
+am__v_VALAC_ = $(am__v_VALAC_@AM_DEFAULT_V@)
+am__v_VALAC_0 = @echo "  VALAC " $@;
+AM_V_GEN = $(am__v_GEN_@AM_V@)
+am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
+am__v_GEN_0 = @echo "  GEN   " $@;
 SOURCES = $(vala_geetest_SOURCES)
 DIST_SOURCES = $(vala_geetest_SOURCES)
 am__can_run_installinfo = \
@@ -102,6 +122,7 @@ CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
 AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
@@ -306,7 +327,7 @@ clean-binPROGRAMS:
 	rm -f $$list
 vala_geetest$(EXEEXT): $(vala_geetest_OBJECTS) $(vala_geetest_DEPENDENCIES) $(EXTRA_vala_geetest_DEPENDENCIES) 
 	@rm -f vala_geetest$(EXEEXT)
-	$(vala_geetest_LINK) $(vala_geetest_OBJECTS) $(vala_geetest_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(vala_geetest_LINK) $(vala_geetest_OBJECTS) $(vala_geetest_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -319,67 +340,67 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vala_geetest-vala_geetest.Po@am__quote@
 
 .c.o:
-@am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(COMPILE) -c $<
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c $<
 
 .c.obj:
-@am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
 .c.lo:
-@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
 vala_geetest-vala_geetest.o: vala_geetest.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-vala_geetest.o -MD -MP -MF $(DEPDIR)/vala_geetest-vala_geetest.Tpo -c -o vala_geetest-vala_geetest.o `test -f 'vala_geetest.c' || echo '$(srcdir)/'`vala_geetest.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/vala_geetest-vala_geetest.Tpo $(DEPDIR)/vala_geetest-vala_geetest.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vala_geetest.c' object='vala_geetest-vala_geetest.o' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-vala_geetest.o -MD -MP -MF $(DEPDIR)/vala_geetest-vala_geetest.Tpo -c -o vala_geetest-vala_geetest.o `test -f 'vala_geetest.c' || echo '$(srcdir)/'`vala_geetest.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/vala_geetest-vala_geetest.Tpo $(DEPDIR)/vala_geetest-vala_geetest.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='vala_geetest.c' object='vala_geetest-vala_geetest.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-vala_geetest.o `test -f 'vala_geetest.c' || echo '$(srcdir)/'`vala_geetest.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-vala_geetest.o `test -f 'vala_geetest.c' || echo '$(srcdir)/'`vala_geetest.c
 
 vala_geetest-vala_geetest.obj: vala_geetest.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-vala_geetest.obj -MD -MP -MF $(DEPDIR)/vala_geetest-vala_geetest.Tpo -c -o vala_geetest-vala_geetest.obj `if test -f 'vala_geetest.c'; then $(CYGPATH_W) 'vala_geetest.c'; else $(CYGPATH_W) '$(srcdir)/vala_geetest.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/vala_geetest-vala_geetest.Tpo $(DEPDIR)/vala_geetest-vala_geetest.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vala_geetest.c' object='vala_geetest-vala_geetest.obj' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-vala_geetest.obj -MD -MP -MF $(DEPDIR)/vala_geetest-vala_geetest.Tpo -c -o vala_geetest-vala_geetest.obj `if test -f 'vala_geetest.c'; then $(CYGPATH_W) 'vala_geetest.c'; else $(CYGPATH_W) '$(srcdir)/vala_geetest.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/vala_geetest-vala_geetest.Tpo $(DEPDIR)/vala_geetest-vala_geetest.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='vala_geetest.c' object='vala_geetest-vala_geetest.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-vala_geetest.obj `if test -f 'vala_geetest.c'; then $(CYGPATH_W) 'vala_geetest.c'; else $(CYGPATH_W) '$(srcdir)/vala_geetest.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-vala_geetest.obj `if test -f 'vala_geetest.c'; then $(CYGPATH_W) 'vala_geetest.c'; else $(CYGPATH_W) '$(srcdir)/vala_geetest.c'; fi`
 
 vala_geetest-Company.o: Company.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Company.o -MD -MP -MF $(DEPDIR)/vala_geetest-Company.Tpo -c -o vala_geetest-Company.o `test -f 'Company.c' || echo '$(srcdir)/'`Company.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/vala_geetest-Company.Tpo $(DEPDIR)/vala_geetest-Company.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='Company.c' object='vala_geetest-Company.o' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Company.o -MD -MP -MF $(DEPDIR)/vala_geetest-Company.Tpo -c -o vala_geetest-Company.o `test -f 'Company.c' || echo '$(srcdir)/'`Company.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/vala_geetest-Company.Tpo $(DEPDIR)/vala_geetest-Company.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Company.c' object='vala_geetest-Company.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Company.o `test -f 'Company.c' || echo '$(srcdir)/'`Company.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Company.o `test -f 'Company.c' || echo '$(srcdir)/'`Company.c
 
 vala_geetest-Company.obj: Company.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Company.obj -MD -MP -MF $(DEPDIR)/vala_geetest-Company.Tpo -c -o vala_geetest-Company.obj `if test -f 'Company.c'; then $(CYGPATH_W) 'Company.c'; else $(CYGPATH_W) '$(srcdir)/Company.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/vala_geetest-Company.Tpo $(DEPDIR)/vala_geetest-Company.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='Company.c' object='vala_geetest-Company.obj' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Company.obj -MD -MP -MF $(DEPDIR)/vala_geetest-Company.Tpo -c -o vala_geetest-Company.obj `if test -f 'Company.c'; then $(CYGPATH_W) 'Company.c'; else $(CYGPATH_W) '$(srcdir)/Company.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/vala_geetest-Company.Tpo $(DEPDIR)/vala_geetest-Company.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Company.c' object='vala_geetest-Company.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Company.obj `if test -f 'Company.c'; then $(CYGPATH_W) 'Company.c'; else $(CYGPATH_W) '$(srcdir)/Company.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Company.obj `if test -f 'Company.c'; then $(CYGPATH_W) 'Company.c'; else $(CYGPATH_W) '$(srcdir)/Company.c'; fi`
 
 vala_geetest-Employee.o: Employee.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Employee.o -MD -MP -MF $(DEPDIR)/vala_geetest-Employee.Tpo -c -o vala_geetest-Employee.o `test -f 'Employee.c' || echo '$(srcdir)/'`Employee.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/vala_geetest-Employee.Tpo $(DEPDIR)/vala_geetest-Employee.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='Employee.c' object='vala_geetest-Employee.o' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Employee.o -MD -MP -MF $(DEPDIR)/vala_geetest-Employee.Tpo -c -o vala_geetest-Employee.o `test -f 'Employee.c' || echo '$(srcdir)/'`Employee.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/vala_geetest-Employee.Tpo $(DEPDIR)/vala_geetest-Employee.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Employee.c' object='vala_geetest-Employee.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Employee.o `test -f 'Employee.c' || echo '$(srcdir)/'`Employee.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Employee.o `test -f 'Employee.c' || echo '$(srcdir)/'`Employee.c
 
 vala_geetest-Employee.obj: Employee.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Employee.obj -MD -MP -MF $(DEPDIR)/vala_geetest-Employee.Tpo -c -o vala_geetest-Employee.obj `if test -f 'Employee.c'; then $(CYGPATH_W) 'Employee.c'; else $(CYGPATH_W) '$(srcdir)/Employee.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/vala_geetest-Employee.Tpo $(DEPDIR)/vala_geetest-Employee.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='Employee.c' object='vala_geetest-Employee.obj' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -MT vala_geetest-Employee.obj -MD -MP -MF $(DEPDIR)/vala_geetest-Employee.Tpo -c -o vala_geetest-Employee.obj `if test -f 'Employee.c'; then $(CYGPATH_W) 'Employee.c'; else $(CYGPATH_W) '$(srcdir)/Employee.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/vala_geetest-Employee.Tpo $(DEPDIR)/vala_geetest-Employee.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Employee.c' object='vala_geetest-Employee.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Employee.obj `if test -f 'Employee.c'; then $(CYGPATH_W) 'Employee.c'; else $(CYGPATH_W) '$(srcdir)/Employee.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(vala_geetest_CFLAGS) $(CFLAGS) -c -o vala_geetest-Employee.obj `if test -f 'Employee.c'; then $(CYGPATH_W) 'Employee.c'; else $(CYGPATH_W) '$(srcdir)/Employee.c'; fi`
 $(srcdir)/vala_geetest.c: $(srcdir)/vala_geetest_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/vala_geetest_vala.stamp; fi
 	@if test -f $@; then :; else \
@@ -401,9 +422,9 @@ $(srcdir)/vala_geetest.h: $(srcdir)/vala_geetest_vala.stamp
 	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/vala_geetest_vala.stamp; \
 	fi
 $(srcdir)/vala_geetest_vala.stamp: vala_geetest.vala Company.vala Employee.vala
-	rm -f $@ && echo stamp > $@-t
-	$(am__cd) $(srcdir) && $(VALAC) $(vala_geetest_VALAFLAGS) $(VALAFLAGS) -C vala_geetest.vala Company.vala Employee.vala
-	mv -f $@-t $@
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(vala_geetest_VALAFLAGS) $(VALAFLAGS) -C vala_geetest.vala Company.vala Employee.vala
+	$(AM_V_at)mv -f $@-t $@
 
 mostlyclean-libtool:
 	-rm -f *.lo
